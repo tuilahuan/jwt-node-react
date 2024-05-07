@@ -12,6 +12,8 @@ const initWebRouter = (app) => {
 
   router.get("/login", homeController.handleLoginPage);
 
+  router.post("/delete-user/:id", homeController.handleDeleteAUser);
+
   return app.use("/", router);
 };
 

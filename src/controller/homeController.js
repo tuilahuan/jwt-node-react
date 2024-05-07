@@ -17,7 +17,12 @@ const handleCreateNewUser = (req, res) => {
   let password = req.body.password;
   let username = req.body.username;
   userService.createNewUser(email, password, username);
-  return res.send("create user success");
+  return res.redirect("/user");
+};
+
+const handleDeleteAUser = async (req, res) => {
+  await userService.deleteUser(req.params.id);
+  return res.redirect("/user");
 };
 
 module.exports = {
@@ -25,4 +30,5 @@ module.exports = {
   handleUserPage,
   handleLoginPage,
   handleCreateNewUser,
+  handleDeleteAUser,
 };
